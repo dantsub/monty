@@ -7,7 +7,7 @@
  */
 int main(int ac, char **av)
 {
-            if (ac < 2) err_one_arg();
-
+    err_one_arg();
+    _open(**av);
     return (0);
 }
