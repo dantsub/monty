@@ -1,6 +1,7 @@
 #ifndef _MONTY_H
 #define _MONTY_H
 
+/* libraries */
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
@@ -35,18 +36,25 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-
-void err_one_arg(void);
-void err_op(void);
-void err_line(int count);
-void err_malloc(void);
+/* global variable */
+int number;
+/* error functions */
+void err_one_arg(int ac);
+void err_op(FILE *op, char *file);
+void err_line(unsigned int line, char *opcd, int sel);
+void err_malloc(stack_t *elem);
+/* get instruction */
 void (*get(char *s))(stack_t **stack, unsigned int line_number);
-stack_t *_push(stack_t **stack, unsigned int line_number);
-stack_t *_pall(stack_t **stack, unsigned int line_number);
-stack_t *_pint(stack_t **stack, unsigned int line_number);
-stack_t *_swap(stack_t **stack, unsigned int line_number);
-stack_t *_pop(stack_t **stack, unsigned int line_number);
-stack_t *_add(stack_t **stack, unsigned int line_number);
+/* Proccess of program*/
+void proccess(char **av);
+/* free stack */
 void free_stack(stack_t *stack);
+/* Instruction functions */
+void _push(stack_t **stack, unsigned int line_number);
+void _pall(stack_t **stack, unsigned int line_number);
+void _pint(stack_t **stack, unsigned int line_number);
+void _swap(stack_t **stack, unsigned int line_number);
+void _pop(stack_t **stack, unsigned int line_number);
+void _add(stack_t **stack, unsigned int line_number);
 
 #endif /* _MONTY_H */

@@ -7,7 +7,7 @@
  */
 int main(int ac, char **av)
 {
-    err_one_arg();
-    _open(**av);
-    return (0);
+	err_one_arg(ac);
+	proccess(**av);
+	return (EXIT_SUCCESS);
 }
