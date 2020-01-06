@@ -25,13 +25,13 @@ int _read(void)
  * @status: status of getline in _read()
  * Return: Nothing.
  */
-void _execute(int status)
+void _execute(void)
 {
 	char *inst = NULL;
 	unsigned int line_number = 0;
 	void (*opcd)(stack_t **stack, unsigned int line_number) = NULL;
 
-	while (status != EOF)
+	while (_read() != EOF)
 	{
 		line_number++;
 		inst = strtok(global.buff, "\t\n ");

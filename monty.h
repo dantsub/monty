@@ -59,7 +59,7 @@ extern monty_t global;
 /* functions of the program process */
 void _open(char *filename);
 int _read(void);
-void _execute(int status);
+void _execute(void);
 /* error functions */
 void err_one_arg(int ac);
 void err_op(char *filename);

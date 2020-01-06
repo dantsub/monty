@@ -13,12 +13,9 @@ int _isdigit(void)
 		if (global.new_n[idx] == '-')
 			cnt++;
 		else
-		{
-			if (global.new_n[idx] >= 'a' && global.new_n[idx] <= 'z')
+			if ((global.new_n[idx] >= 'a' && global.new_n[idx] <= 'z') ||
+			(global.new_n[idx] >= 'A' && global.new_n[idx] <= 'Z'))
 				return (0);
-			if (global.new_n[idx] >= 'A' && global.new_n[idx] <= 'Z')
-				return (0);
-		}
 		idx++;
 	}
 	if (cnt > 1)
