@@ -57,7 +57,6 @@ typedef struct monty_s
 /* global variable */
 extern monty_t global;
 /* functions of the program process */
-void proccess(char **av);
 void _open(char *filename);
 int _read(void);
 void _execute(int status);

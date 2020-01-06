@@ -1,17 +1,5 @@
 #include "monty.h"
 /**
- * proccess - proccess of program.
- * @av: argument values.
- * Return: Nothing.
- */
-void proccess(char **av)
-{
-	char *filename = av[1];
-
-	_open(filename);
-	_execute(_read());
-}
-/**
  * _open - open file.
  * Return: Nothing.
  */
