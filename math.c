@@ -27,9 +27,9 @@ void _sub(stack_t **stack, unsigned int line_number)
 	int sub;
 
 	if (!*stack || !(*stack)->next)
-		err_line(line_number, "add", 4);
+		err_line(line_number, "sub", 4);
 
-	sub = (*stack)->n - (*stack)->next->n;
+	sub = (*stack)->next->n - (*stack)->n;
 	_pop(&(*stack), line_number);
 	(*stack)->n = sub;
 }
