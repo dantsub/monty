@@ -7,7 +7,6 @@
 void proccess(char **av)
 {
 	char *filename = av[1];
-	int status = 0;
 
 	_open(filename);
 	_execute(_read());
@@ -18,7 +17,7 @@ void proccess(char **av)
  */
 void _open(char *filename)
 {
-	global->file = fopen(filename, "r");
+	global.file = fopen(filename, "r");
 	err_op(filename);
 }
 /**
@@ -30,7 +29,7 @@ int _read(void)
 	size_t len = 0;
 	ssize_t status = 0;
 
-	status = getline(&(global->buff), &len, global->file);
+	status = getline(&(global.buff), &len, global.file);
 	return (status);
 }
 /**
@@ -47,12 +46,12 @@ void _execute(int status)
 	while (status != EOF)
 	{
 		line_number++;
-		inst = strtok(global->buff, "\t\n ");
+		inst = strtok(global.buff, "\t\n ");
 		if (inst && inst[0] != '#')
 		{
 			opcd = get(inst, line_number);
-			global->new_n = strtok(NULL, "\t\n ");
-			opcd(&(global->stack), line_number);
+			global.new_n = strtok(NULL, "\t\n ");
+			opcd(&(global.stack), line_number);
 		}
 	}
 	free_close();

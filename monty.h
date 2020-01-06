@@ -55,7 +55,7 @@ typedef struct monty_s
         char *new_n;
 } monty_t;
 /* global variable */
-extern monty_t *global;
+extern monty_t global;
 /* functions of the program process */
 void proccess(char **av);
 void _open(char *filename);

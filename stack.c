@@ -10,7 +10,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	stack_t *elem;
 	(void)line_number;
 
-	if (!(global->new_n) || !_isdigit())
+	if (!(global.new_n) || !_isdigit())
 		err_line(line_number, "push", 1);
 
 	elem = malloc(sizeof(stack_t));
@@ -22,7 +22,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	{	elem->next = *stack;
 		(*stack)->prev = elem;
 	}
-	elem->n = atoi(global->new_n);
+	elem->n = atoi(global.new_n);
 	elem->prev = NULL;
 	*stack = elem;
 }

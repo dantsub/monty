@@ -39,16 +39,16 @@ void err_line(unsigned int line, char *opcd, int sel)
 	switch (sel)
 	{
 	case 1:
-		fprintf(stderr, "L%u: usage: push integer", line);
+		fprintf(stderr, "L%u: usage: push integer\n", line);
 		break;
 	case 2:
-		fprintf(stderr, "L%u: can't pint, stack empty", line);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line);
 		break;
 	case 3:
-		fprintf(stderr, "L%u: can't pop an empty stack", line);
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line);
 		break;
 	case 4:
-		fprintf(stderr, "L%u: can't %s, stack too short", line, opcd);
+		fprintf(stderr, "L%u: can't %s, stack too short\n", line, opcd);
 		break;
 	
 	default:
@@ -65,8 +65,8 @@ void err_line(unsigned int line, char *opcd, int sel)
  */
 void err_op(char *filename)
 {
-	if (!global->file)
-	{	fprintf(stderr, "Error: Can't open file %s", filename);
+	if (!global.file)
+	{	fprintf(stderr, "Error: Can't open file %s\n", filename);
 		free_close();
 		exit(EXIT_FAILURE);
 	}

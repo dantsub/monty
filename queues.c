@@ -43,3 +43,19 @@ void _pop(stack_t **stack, unsigned int line_number)
 	*stack = (*stack)->next;
 	free(actual);
 }
+/**
+ * 
+ * 
+ * 
+ */
+void _swap(stack_t **stack, unsigned int line_number)
+{
+	int swap;
+
+	if (!*stack || !(*stack)->next)
+		err_line(line_number, "add", 4);
+
+	swap = (*stack)->n;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = swap;
+}

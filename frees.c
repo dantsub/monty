@@ -17,10 +17,10 @@ void free_stack(stack_t *stack)
  */
 void free_close(void)
 {
-	if (global->file)
-		fclose(global->file);
-	if (global->buff)
-		free(global->buff);
-	if (global->stack)
-		free_stack(global->stack);
+	if (global.file)
+		fclose(global.file);
+	if (global.buff)
+		free(global.buff);
+	if (global.stack)
+		free_stack(global.stack);
 }

@@ -1,5 +1,5 @@
 #include "monty.h"
-monty_t *global = {NULL, NULL, NULL, NULL, 0};
+monty_t global = {NULL, NULL, NULL, NULL};
 /**
  * main - main the program.
  * @av:
