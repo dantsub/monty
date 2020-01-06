@@ -12,7 +12,7 @@ int _isdigit(void)
 	{
 		if (global.new_n[idx] == '-')
 			cnt++;
-		else 
+		else
 		{
 			if (global.new_n[idx] >= 'a' && global.new_n[idx] <= 'z')
 				return (0);
