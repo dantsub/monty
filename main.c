@@ -8,10 +8,8 @@ monty_t global = {NULL, NULL, NULL, NULL};
  */
 int main(int ac, char **av)
 {
-	char *filename = av[1];
-
 	err_one_arg(ac);
-	_open(filename);
+	_open(av[1]);
 	_execute(_read());
 	exit(EXIT_SUCCESS);
 }
