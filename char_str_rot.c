@@ -21,11 +21,14 @@ void _pstr(stack_t **stack, unsigned int line_number)
 	stack_t *tmp = *stack;
 	(void)line_number;
 
-	while (tmp->n > 0)
+	if (tmp->n > 0 && tmp->n < 127)
 	{
-		if (tmp->n > 64 && tmp->n < 127)
-			putchar(tmp->n);
-		tmp = tmp->next;
+		while (tmp->n)
+		{
+			if (tmp->n > 64 && tmp->n < 127)
+				putchar(tmp->n);
+			tmp = tmp->next;
+		}
+		putchar('\n');
 	}
-	putchar('\n');
 }
