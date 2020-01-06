@@ -67,7 +67,6 @@ void err_op(char *filename)
 {
 	if (!global.file)
 	{	fprintf(stderr, "Error: Can't open file %s\n", filename);
-		free_close();
 		exit(EXIT_FAILURE);
 	}
 }

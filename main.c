@@ -11,5 +11,6 @@ int main(int ac, char **av)
 	err_one_arg(ac);
 	_open(av[1]);
 	_execute();
+	free_close();
 	exit(EXIT_SUCCESS);
 }

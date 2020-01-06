@@ -42,5 +42,4 @@ void _execute(void)
 			opcd(&(global.stack), line_number);
 		}
 	}
-	free_close();
 }
