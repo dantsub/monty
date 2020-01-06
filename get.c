@@ -10,6 +10,10 @@ void (*get(char *s, unsigned int l))(stack_t **stack, unsigned int line_number)
 	int idx;
 
 	instruction_t op[] = {
+			{"stack", queue_stack},
+			{"queue", queue_stack},
+			{"pchar", _pchar},
+			{"pstr", _pstr},
 			{"push", _push},
 			{"pall", _pall},
 			{"pint", _pint},

@@ -6,6 +6,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -53,6 +54,7 @@ typedef struct monty_s
 	stack_t *stack;
 	char *buff;
 	char *new_n;
+	bool change;
 } monty_t;
 /* global variable */
 extern monty_t global;
@@ -65,6 +67,7 @@ void err_one_arg(int ac);
 void err_op(char *filename);
 void err_line(unsigned int line, char *opcd, int sel);
 void err_malloc(stack_t *elem);
+void err_ascii(stack_t **stack, unsigned int line_number);
 /* get instruction */
 void(*get(char *s, unsigned int l))(stack_t **stack, unsigned int line_number);
 /* _isdigit*/
@@ -84,5 +87,10 @@ void _sub(stack_t **stack, unsigned int line_number);
 void _mul(stack_t **stack, unsigned int line_number);
 void _div(stack_t **stack, unsigned int line_number);
 void _mod(stack_t **stack, unsigned int line_number);
+void _pchar(stack_t **stack, unsigned int line_number);
+void _pstr(stack_t **stack, unsigned int line_number);
+void queue_stack(stack_t **stack, unsigned int line_number);
+void _pstack(stack_t **stack, stack_t *elem);
+void _pqueue(stack_t **stack, stack_t *elem);
 
 #endif /* _MONTY_H */

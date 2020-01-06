@@ -1,5 +1,5 @@
 #include "monty.h"
-monty_t global = {NULL, NULL, NULL, NULL};
+monty_t global = {NULL, NULL, NULL, NULL, true};
 /**
  * main - main the program.
  * @av: argument values.

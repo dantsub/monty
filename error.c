@@ -42,7 +42,7 @@ void err_line(unsigned int line, char *opcd, int sel)
 		fprintf(stderr, "L%u: usage: push integer\n", line);
 		break;
 	case 2:
-		fprintf(stderr, "L%u: can't pint, stack empty\n", line);
+		fprintf(stderr, "L%u: can't %s, stack empty\n", line, opcd);
 		break;
 	case 3:
 		fprintf(stderr, "L%u: can't pop an empty stack\n", line);
@@ -70,6 +70,22 @@ void err_op(char *filename)
 {
 	if (!global.file)
 	{	fprintf(stderr, "Error: Can't open file %s\n", filename);
+		exit(EXIT_FAILURE);
+	}
+}
+/**
+ * err_ascii - verify if n of stack is ascii value.
+ * @stack: stack.
+ * @line_number: line_number.
+ * Return: Nothing
+ */
+void err_ascii(stack_t **stack, unsigned int line_number)
+{
+	if (!(*stack))
+		err_line(line_number, "pchar", 2);
+	if ((*stack)->n < 65 || (*stack)->n > 126)
+	{	fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+		free_close();
 		exit(EXIT_FAILURE);
 	}
 }

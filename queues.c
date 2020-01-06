@@ -58,3 +58,26 @@ void _swap(stack_t **stack, unsigned int line_number)
 	(*stack)->n = (*stack)->next->n;
 	(*stack)->next->n = swap;
 }
+/**
+ * _pqueue - add node in the end.
+ * @stack: stack.
+ * @elem: new node.
+ * Return: Nothing.
+ */
+void _pqueue(stack_t **stack, stack_t *elem)
+{
+	stack_t *cp_stack = *stack;
+
+	elem->n = atoi(global.new_n);
+	elem->next = NULL;
+	if (!cp_stack)
+	{	elem->prev = NULL;
+		*stack = elem;
+		return;
+	}
+	while (cp_stack->next)
+		cp_stack = cp_stack->next;
+
+	cp_stack->next = elem;
+	elem->prev = cp_stack;
+}
