@@ -24,5 +24,5 @@ void (*get(char *s, unsigned int l))(stack_t **stack, unsigned int line_number)
 			return (op[idx].f);
 	}
 	err_line(l, s, 0);
-	return (NULL);
+	exit(EXIT_FAILURE);
 }

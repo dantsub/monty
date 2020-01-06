@@ -41,5 +41,7 @@ void _execute(void)
 			global.new_n = strtok(NULL, "\t\n ");
 			opcd(&(global.stack), line_number);
 		}
+		free(global.buff);
 	}
+	free_close();
 }
