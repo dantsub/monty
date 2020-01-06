@@ -6,44 +6,54 @@
  */
 void proccess(char **av)
 {
-	FILE *file;
-	char *filename;
+	char *filename = av[1];
+	int status = 0;
 
-	filename = *av[1];
-	file = _open(filename);
-	_read(file);
-	fclose(file);
-	free(file);
+	_open(filename);
+	_execute(_read());
 }
-FILE *_open(char *filename)
+/**
+ * _open - open file.
+ * Return: Nothing.
+ */
+void _open(char *filename)
 {
-	FILE *file;
-
-	file = fopen(filename, "r");
-	err_op(file, filename);
-	return file;
+	global->file = fopen(filename, "r");
+	err_op(filename);
 }
-void _read(FILE *file)
+/**
+ * _read - read the file
+ * Return: status.
+ */
+int _read(void)
 {
-	char *fLine = NULL;
 	size_t len = 0;
 	ssize_t status = 0;
 
-	status = getline(&fLine, &len, file);
-	_execute(status, fLine);
+	status = getline(&(global->buff), &len, global->file);
+	return (status);
 }
-void _execute(int status, char *fLine)
+/**
+ * _execute - execute opcode.
+ * @status: status of getline in _read()
+ * Return: Nothing.
+ */
+void _execute(int status)
 {
-	char inst[2048];
-	stack_t *stack = NULL; 
+	char *inst = NULL;
 	unsigned int line_number = 0;
+	void (*opcd)(stack_t **stack, unsigned int line_number) = NULL;
 
-	while (status != -1)
+	while (status != EOF)
 	{
-		fLine = strtok(fLine, "\t\n ");
-		strcpy(inst, fLine);
 		line_number++;
-
+		inst = strtok(global->buff, "\t\n ");
+		if (inst && inst[0] != '#')
+		{
+			opcd = get(inst, line_number);
+			global->new_n = strtok(NULL, "\t\n ");
+			opcd(&(global->stack), line_number);
+		}
 	}
-	free_stack(stack);
+	free_close();
 }

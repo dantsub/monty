@@ -1,4 +1,5 @@
 #include "monty.h"
+monty_t *global = {NULL, NULL, NULL, NULL, 0};
 /**
  * main - main the program.
  * @av:
@@ -8,6 +9,6 @@
 int main(int ac, char **av)
 {
 	err_one_arg(ac);
-	proccess(**av);
-	return (EXIT_SUCCESS);
+	proccess(av);
+	exit(EXIT_SUCCESS);
 }

@@ -21,6 +21,7 @@ void err_malloc(stack_t *n_stack)
 {
 	if (!n_stack)
 	{	fprintf(stderr, "Error: malloc failed\n");
+		free_close();
 		exit(EXIT_FAILURE);
 	}
 }
@@ -54,18 +55,19 @@ void err_line(unsigned int line, char *opcd, int sel)
 		fprintf(stderr, "L%d: unknown instruction %s\n", line, opcd);
 		break;
 	}
+	free_close();
 	exit(EXIT_FAILURE);
 }
 /**
  * err_op - Print error if file dosen't open.
- * @op: pointer.
  * @file: name file.
  * Return: Nothing.
  */
-void err_op(FILE *op, char *file)
+void err_op(char *filename)
 {
-	if (!op)
-	{	fprintf(stderr, "Error: Can't open file %s", file);
+	if (!global->file)
+	{	fprintf(stderr, "Error: Can't open file %s", filename);
+		free_close();
 		exit(EXIT_FAILURE);
 	}
 }

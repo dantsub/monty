@@ -4,7 +4,7 @@
  * @s: string.
  * Return: nothing.
  */
-void (*get(char *s))(stack_t **stack, unsigned int line_number)
+void (*get(char *s, unsigned int l))(stack_t **stack, unsigned int line_number)
 {
 	int idx;
 
@@ -19,6 +19,9 @@ void (*get(char *s))(stack_t **stack, unsigned int line_number)
 	};
 
 	for (idx = 0; op[idx].opcode != NULL; idx++)
+	{
 		if (!strcmp(s, op[idx].opcode))
 			return (op[idx].f);
+	}
+	err_line(l, s, 0);
 }
