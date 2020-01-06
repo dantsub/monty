@@ -52,7 +52,7 @@ void _swap(stack_t **stack, unsigned int line_number)
 	int swap;
 
 	if (!*stack || !(*stack)->next)
-		err_line(line_number, "add", 4);
+		err_line(line_number, "swap", 4);
 
 	swap = (*stack)->n;
 	(*stack)->n = (*stack)->next->n;
