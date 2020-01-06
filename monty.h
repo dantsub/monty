@@ -18,9 +18,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -33,8 +33,8 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 /* global structure */
 /**
@@ -49,10 +49,10 @@ typedef struct instruction_s
  */
 typedef struct monty_s
 {
-        FILE *file;
-        stack_t *stack;
-        char *buff;
-        char *new_n;
+	FILE *file;
+	stack_t *stack;
+	char *buff;
+	char *new_n;
 } monty_t;
 /* global variable */
 extern monty_t global;
@@ -67,7 +67,8 @@ void err_op(char *filename);
 void err_line(unsigned int line, char *opcd, int sel);
 void err_malloc(stack_t *elem);
 /* get instruction */
-void (*get(char *s, unsigned int l))(stack_t **stack, unsigned int line_number);
+void (*get(char *s, unsigned int l))
+(stack_t **stack, unsigned int line_number);
 /* _isdigit*/
 int _isdigit(void);
 /* free */
