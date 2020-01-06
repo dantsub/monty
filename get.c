@@ -2,6 +2,7 @@
 /**
  * get - get the function according to the argument s.
  * @s: string.
+ * @l: line_number.
  * Return: nothing.
  */
 void (*get(char *s, unsigned int l))(stack_t **stack, unsigned int line_number)

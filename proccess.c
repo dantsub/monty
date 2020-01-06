@@ -1,6 +1,7 @@
 #include "monty.h"
 /**
  * _open - open file.
+ * @filename: filename.
  * Return: Nothing.
  */
 void _open(char *filename)
@@ -22,7 +23,6 @@ int _read(void)
 }
 /**
  * _execute - execute opcode.
- * @status: status of getline in _read()
  * Return: Nothing.
  */
 void _execute(void)

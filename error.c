@@ -60,7 +60,7 @@ void err_line(unsigned int line, char *opcd, int sel)
 }
 /**
  * err_op - Print error if file dosen't open.
- * @file: name file.
+ * @filename: name file.
  * Return: Nothing.
  */
 void err_op(char *filename)
