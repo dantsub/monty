@@ -16,7 +16,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	elem = malloc(sizeof(stack_t));
 	err_malloc(elem);
 
-	/*if (!*stack)
+	if (!*stack)
 		elem->next = NULL;
 	else
 	{	elem->next = *stack;
@@ -24,18 +24,5 @@ void _push(stack_t **stack, unsigned int line_number)
 	}
 	elem->n = atoi(global.new_n);
 	elem->prev = NULL;
-	*stack = elem;*/
-	elem->n = atoi(global.new_n);
-	elem->prev = NULL;
-	elem->next = NULL;
-
-	if (*stack == NULL)
-	{
-		*stack = elem;
-		return;
-	}
-
-	elem->next = *stack;
-	(*stack)->prev = elem;
 	*stack = elem;
 }
