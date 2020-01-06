@@ -67,8 +67,7 @@ void err_op(char *filename);
 void err_line(unsigned int line, char *opcd, int sel);
 void err_malloc(stack_t *elem);
 /* get instruction */
-void (*get(char *s, unsigned int l))
-(stack_t **stack, unsigned int line_number);
+void(*get(char *s, unsigned int l))(stack_t **stack, unsigned int line_number);
 /* _isdigit*/
 int _isdigit(void);
 /* free */
