@@ -50,7 +50,7 @@ void err_line(unsigned int line, char *opcd, int sel)
 	case 4:
 		fprintf(stderr, "L%u: can't %s, stack too short\n", line, opcd);
 		break;
-	
+
 	default:
 		fprintf(stderr, "L%d: unknown instruction %s\n", line, opcd);
 		break;

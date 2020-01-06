@@ -6,7 +6,7 @@
  * Return: Nothing.
  */
 void _add(stack_t **stack, unsigned int line_number)
-{ 
+{
 	int sum;
 
 	if (!*stack || !(*stack)->next)

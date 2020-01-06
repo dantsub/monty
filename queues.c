@@ -15,7 +15,7 @@ void _pall(stack_t **stack, unsigned int line_number)
 	}
 }
 /**
- * _pint -
+ * _pint - pint
  * @stack: stack.
  * @line_number: line_number.
  * Return: Nothing.
@@ -27,7 +27,7 @@ void _pint(stack_t **stack, unsigned int line_number)
 	printf("%d\n", (*stack)->n);
 }
 /**
- * _pop - 
+ * _pop - pop
  * @stack: stack
  * @line_number: line_number.
  * Return: Nothing.
@@ -37,16 +37,17 @@ void _pop(stack_t **stack, unsigned int line_number)
 	stack_t *actual = *stack;
 
 	if (!(*stack))
-		err_line(line_number, "pop", 3); 
+		err_line(line_number, "pop", 3);
 	if ((*stack)->next)
 		(*stack)->next->prev = NULL;
 	*stack = (*stack)->next;
 	free(actual);
 }
 /**
- * 
- * 
- * 
+ * _swap - swap
+ * @stack: stack
+ * @line_number: line_number.
+ * Return: Nothing.
  */
 void _swap(stack_t **stack, unsigned int line_number)
 {
