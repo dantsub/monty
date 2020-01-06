@@ -46,7 +46,7 @@ void _mul(stack_t **stack, unsigned int line_number)
 	if (!*stack || !(*stack)->next)
 		err_line(line_number, "mul", 4);
 
-	mul = (*stack)->n * (*stack)->next->n;
+	mul = (*stack)->next->n * (*stack)->n;
 	_pop(&(*stack), line_number);
 	(*stack)->n = mul;
 }
@@ -65,7 +65,7 @@ void _div(stack_t **stack, unsigned int line_number)
 	if ((*stack)->n == 0)
 		err_line(line_number, "div", 5);
 
-	div = (*stack)->n / (*stack)->next->n;
+	div = (*stack)->next->n / (*stack)->n;
 	_pop(&(*stack), line_number);
 	(*stack)->n = div;
 }
@@ -85,7 +85,7 @@ void _mod(stack_t **stack, unsigned int line_number)
 	if ((*stack)->n == 0)
 		err_line(line_number, "mod", 5);
 
-	mod = (*stack)->n % (*stack)->next->n;
+	mod = (*stack)->next->n % (*stack)->n;
 	_pop(&(*stack), line_number);
 	(*stack)->n = mod;
 }
