@@ -23,7 +23,7 @@ void _pstr(stack_t **stack, unsigned int line_number)
 
 	if (tmp && tmp->n > 0 && tmp->n < 127)
 	{
-		while (tmp && tmp->n < 127 && tmp->n > 0)
+		while (tmp && tmp->n > 0 && tmp->n < 127)
 		{
 			if (tmp->n > 64 && tmp->n < 127)
 				putchar(tmp->n);
