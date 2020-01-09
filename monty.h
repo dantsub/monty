@@ -89,8 +89,11 @@ void _div(stack_t **stack, unsigned int line_number);
 void _mod(stack_t **stack, unsigned int line_number);
 void _pchar(stack_t **stack, unsigned int line_number);
 void _pstr(stack_t **stack, unsigned int line_number);
+void _rotl(stack_t **stack, unsigned int line_number);
+void _rotr(stack_t **stack, unsigned int line_number);
 void queue_stack(stack_t **stack, unsigned int line_number);
 void _pstack(stack_t **stack, stack_t *elem);
 void _pqueue(stack_t **stack, stack_t *elem);
+stack_t *_ps(stack_t **stack, int n);
 
 #endif /* _MONTY_H */

@@ -18,6 +18,8 @@ void (*get(char *s, unsigned int l))(stack_t **stack, unsigned int line_number)
 			{"pall", _pall},
 			{"pint", _pint},
 			{"swap", _swap},
+			{"rotl", _rotl},
+			{"rotr", _rotr},
 			{"pop", _pop},
 			{"nop", _nop},
 			{"add", _add},

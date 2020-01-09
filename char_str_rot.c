@@ -29,3 +29,48 @@ void _pstr(stack_t **stack, unsigned int line_number)
 	}
 	putchar('\n');
 }
+/**
+ * _rotl - rotates the stack to the top.
+ * @stack: stack.
+ * @line_number: line number.
+ * Return: Nothing.
+ */
+void _rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp = *stack, *change;
+	int n;
+	(void)line_number;
+
+	if (tmp)
+	{
+		change = tmp->next;
+		n = tmp->n;
+		while (tmp->next)
+		{
+			tmp->n = change->n;
+			tmp = change;
+			change = tmp->next;
+		}
+		tmp->n = n;
+	}
+}
+/**
+ * _rotr - rotates the stack to the bottom.
+ * @stack: stack.
+ * @line_number: line number.
+ * Return: Nothing.
+ */
+void _rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp = *stack;
+	(void)line_number;
+
+	if (tmp && tmp->next)
+	{
+		while (tmp->next->next)
+			tmp = tmp->next;
+		_ps(&(*stack), tmp->next->n);
+		free(tmp->next);
+		tmp->next = NULL;
+	}
+}
